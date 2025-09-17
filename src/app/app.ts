@@ -23,6 +23,16 @@ export class App {
 
   protected readonly recipe = signal<RecipeModel | undefined>(MOCK_RECIPES[0]);
   
+  protected readonly servings = signal(1);
+
+  decreaseServings() {
+    this.servings.update(servings => servings - 1);
+  }
+
+  increaseServings() {
+    this.servings.update(servings => servings + 1);
+  }
+
   show(recipe: RecipeModel) {
     this.recipe.set(recipe);
   }
