@@ -7,6 +7,8 @@
  */
 import {Component, signal} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
+import { RecipeModel } from './models';
+import { MOCK_RECIPES } from './mock-recipes';
 
 @Component({
   selector: 'app-root',
@@ -15,9 +17,15 @@ import {RouterOutlet} from '@angular/router';
   styleUrl: './app.css',
 })
 export class App {
+  protected recipes = MOCK_RECIPES;
+
   protected readonly title = signal('智慧食譜盒');
 
-  show(message: string) {
-    console.log(message);
+  protected readonly recipe = signal<RecipeModel | undefined>(MOCK_RECIPES[0]);
+  
+  show(recipe: RecipeModel) {
+    this.recipe.set(recipe);
   }
+
+
 }

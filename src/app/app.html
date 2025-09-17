@@ -1,5 +1,9 @@
 <h1>{{ title() }}</h1>
 <div>
-  <button (click)="show('正在顯示義大利麵食譜')">義大利麵</button>
-  <button (click)="show('正在顯示沙拉食譜')">沙拉</button>
+  <div>食譜名稱: {{ recipe()?.name }}</div>
+  <div>食譜描述: {{ recipe()?.description }}</div>
+</div>
+<div>
+  <button (click)="show(recipes[0])">義大利麵</button>
+  <button (click)="show(recipes[1])">沙拉</button>
 </div>
