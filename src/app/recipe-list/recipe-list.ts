@@ -1,12 +1,11 @@
 import { Component, computed, inject, signal } from '@angular/core';
-import { RecipeModel } from '../models';
-import { RecipeDetail } from "../recipe-detail/recipe-detail";
 import { FormsModule } from '@angular/forms';
 import { Recipe } from '../recipe';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-list',
-  imports: [RecipeDetail,FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './recipe-list.html',
   styleUrl: './recipe-list.css'
 })
@@ -21,12 +20,5 @@ export class RecipeList {
     return this.recipes.filter(recipe => recipe.name.toLowerCase().includes(search));
   });
 
-  protected readonly recipe = signal<RecipeModel | undefined>(this.recipes[0]);
-  
-  
-
-  selectRecipe(recipe: RecipeModel) {
-    this.recipe.set(recipe);
-  }
 
 }

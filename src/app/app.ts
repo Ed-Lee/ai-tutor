@@ -7,14 +7,11 @@
  */
 import {Component, computed, signal} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
-import { RecipeModel } from './models';
-import { MOCK_RECIPES } from './mock-recipes';
-import { JsonPipe } from '@angular/common';
-import { RecipeList } from './recipe-list/recipe-list';
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RecipeList],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

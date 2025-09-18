@@ -1,6 +1,12 @@
 <input type="text" [(ngModel)]="searchTerm" />
-@for(recipe of filteredRecipes(); track $index) {
-    <div (click)="selectRecipe(recipe)">{{ recipe.name }}</div>  
-}
-<app-recipe-detail [recipe]="recipe()"></app-recipe-detail>
+<ul>
+    @for(recipe of filteredRecipes(); track $index) {
+        <li>
+            <a [routerLink]="['/recipes', recipe.id]">{{ recipe.name }}</a>  
+        </li>
+    }
+
+</ul>
+
+
   

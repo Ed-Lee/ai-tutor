@@ -1,5 +1,7 @@
-import { Component, computed, input, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { RecipeModel } from '../models';
+import { ActivatedRoute } from '@angular/router';
+import { Recipe } from '../recipe';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -8,7 +10,13 @@ import { RecipeModel } from '../models';
   styleUrl: './recipe-detail.css'
 })
 export class RecipeDetail {
-  recipe = input<RecipeModel | undefined>();
+  route = inject(ActivatedRoute);
+  recipeService = inject(Recipe);
+
+  protected readonly recipe = computed(() => {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    return this.recipeService.getRecipeById(id);
+  });
 
   protected readonly servings = signal(1);
 

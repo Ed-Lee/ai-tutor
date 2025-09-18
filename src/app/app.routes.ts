@@ -6,5 +6,16 @@
  * found in the LICENSE file at https://angular.dev/license
  */
 import {Routes} from '@angular/router';
+import { RecipeList } from './recipe-list/recipe-list';
+import { RecipeDetail } from './recipe-detail/recipe-detail';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+    {
+        path: '',
+        component: RecipeList
+    },
+    {
+        path: 'recipes/:id',
+        component: RecipeDetail
+    }
+];
