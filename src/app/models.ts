@@ -9,5 +9,6 @@ export interface RecipeModel {
   id: number;
   name: string;
   description: string;
+  imgUrl: string;
   ingredients: Ingredient[];
 }

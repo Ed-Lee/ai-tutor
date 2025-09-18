@@ -2,6 +2,7 @@
 <div>
   <div>食譜名稱: {{ recipe()?.name }}</div>
   <div>食譜描述: {{ recipe()?.description }}</div>
+  <div><img [src]="recipe()?.imgUrl" /></div>
   <div><button (click)="decreaseServings()">-</button> 份量: {{ servings() }} <button (click)="increaseServings()">+</button></div>
   <div>Ingredients:
     <pre>
