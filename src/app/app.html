@@ -1,16 +1,2 @@
 <h1>{{ title() }}</h1>
-<div>
-  <div>食譜名稱: {{ recipe()?.name }}</div>
-  <div>食譜描述: {{ recipe()?.description }}</div>
-  <div><img [src]="recipe()?.imgUrl" /></div>
-  <div><button (click)="decreaseServings()">-</button> 份量: {{ servings() }} <button (click)="increaseServings()">+</button></div>
-  <div>Ingredients:
-    <pre>
-      {{ ingredients() | json }}
-    </pre>
-  </div>
-</div>
-<div>
-  <button (click)="show(recipes[0])">義大利麵</button>
-  <button (click)="show(recipes[1])">沙拉</button>
-</div>
+<app-recipe-list></app-recipe-list>
