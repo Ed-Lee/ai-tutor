@@ -1,5 +1,6 @@
+<input type="text" [(ngModel)]="searchTerm" />
+@for(recipe of filteredRecipes(); track $index) {
+    <div (click)="selectRecipe(recipe)">{{ recipe.name }}</div>  
+}
 <app-recipe-detail [recipe]="recipe()"></app-recipe-detail>
-  <div>
-    <button (click)="show(recipes[0])">義大利麵</button>
-    <button (click)="show(recipes[1])">沙拉</button>
-  </div>
+  
