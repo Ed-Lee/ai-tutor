@@ -1,9 +1,8 @@
-import { Component, computed, signal } from '@angular/core';
-import { MOCK_RECIPES } from '../mock-recipes';
+import { Component, computed, inject, signal } from '@angular/core';
 import { RecipeModel } from '../models';
-import { JsonPipe } from '@angular/common';
 import { RecipeDetail } from "../recipe-detail/recipe-detail";
 import { FormsModule } from '@angular/forms';
+import { Recipe } from '../recipe';
 
 @Component({
   selector: 'app-recipe-list',
@@ -12,7 +11,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './recipe-list.css'
 })
 export class RecipeList {
-  protected recipes = MOCK_RECIPES;
+  recipeService = inject(Recipe);
+  protected recipes = this.recipeService.getRecipes();
 
   protected readonly searchTerm = signal<string>('');
 
@@ -21,7 +21,7 @@ export class RecipeList {
     return this.recipes.filter(recipe => recipe.name.toLowerCase().includes(search));
   });
 
-  protected readonly recipe = signal<RecipeModel | undefined>(MOCK_RECIPES[0]);
+  protected readonly recipe = signal<RecipeModel | undefined>(this.recipes[0]);
   
   
 
