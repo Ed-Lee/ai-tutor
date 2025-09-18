@@ -2,7 +2,10 @@
     <img class="recipe-image" [src]="recipe()?.imgUrl" alt="{{ recipe()?.name }}" />
   
     <div class="recipe-content">
-      <h2 class="recipe-name">{{ recipe()?.name }}</h2>
+      <h2 class="recipe-name">
+        @if (recipe()?.isFavorite) { <span class="favorite-icon">❤️</span> }
+        {{ recipe()?.name }}
+      </h2>
       <p class="recipe-description">{{ recipe()?.description }}</p>
   
       <div class="servings-control">
@@ -11,10 +14,11 @@
         <button (click)="increaseServings()">+</button>
       </div>
   
-      <div class="ingredients-list">
-        <h3>食材:</h3>
-        <pre>{{ ingredients() | json }}</pre>
-      </div>
+      <ul class="ingredients-list">
+        @for (item of ingredients(); track $index) {
+          <li>{{ item.name }} : {{ item.quantity }} {{ item.unit }}</li>
+        }
+    </ul>
     </div>
   </div>
   

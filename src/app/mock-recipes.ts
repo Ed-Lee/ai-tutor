@@ -7,6 +7,7 @@ export const MOCK_RECIPES: RecipeModel[] = [
     name: 'Spaghetti Carbonara',
     description: 'A classic Italian pasta dish.',
     imgUrl: 'https://picsum.photos/id/488/300/200',
+    isFavorite: true,
     ingredients: [
       { name: 'Spaghetti', quantity: 200, unit: 'g' },
       { name: 'Guanciale', quantity: 100, unit: 'g' },
@@ -20,6 +21,7 @@ export const MOCK_RECIPES: RecipeModel[] = [
     name: 'Caprese Salad',
     description: 'A simple and refreshing Italian salad.',
     imgUrl: 'https://picsum.photos/id/312/300/200',
+    isFavorite: false,
     ingredients: [
       { name: 'Tomatoes', quantity: 4, unit: 'each' },
       { name: 'Fresh Mozzarella', quantity: 200, unit: 'g' },
