@@ -1,11 +1,20 @@
-<div>
-    <div>食譜名稱: {{ recipe()?.name }}</div>
-    <div>食譜描述: {{ recipe()?.description }}</div>
-    <div><img [src]="recipe()?.imgUrl" /></div>
-    <div><button (click)="decreaseServings()">-</button> 份量: {{ servings() }} <button (click)="increaseServings()">+</button></div>
-    <div>Ingredients:
-      <pre>
-        {{ ingredients() | json }}
-      </pre>
+<div class="recipe-card">
+    <img class="recipe-image" [src]="recipe()?.imgUrl" alt="{{ recipe()?.name }}" />
+  
+    <div class="recipe-content">
+      <h2 class="recipe-name">{{ recipe()?.name }}</h2>
+      <p class="recipe-description">{{ recipe()?.description }}</p>
+  
+      <div class="servings-control">
+        <button (click)="decreaseServings()">-</button>
+        <span>份量: {{ servings() }}</span>
+        <button (click)="increaseServings()">+</button>
+      </div>
+  
+      <div class="ingredients-list">
+        <h3>食材:</h3>
+        <pre>{{ ingredients() | json }}</pre>
+      </div>
     </div>
   </div>
+  
