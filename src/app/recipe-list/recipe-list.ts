@@ -11,13 +11,13 @@ import { RouterLink } from '@angular/router';
 })
 export class RecipeList {
   recipeService = inject(Recipe);
-  protected recipes = this.recipeService.getRecipes();
+  protected recipes = this.recipeService.recipes;
 
   protected readonly searchTerm = signal<string>('');
 
   protected readonly filteredRecipes = computed(() => {
     const search = this.searchTerm().toLowerCase();
-    return this.recipes.filter(recipe => recipe.name.toLowerCase().includes(search));
+    return this.recipes().filter(recipe => recipe.name.toLowerCase().includes(search));
   });
 
 

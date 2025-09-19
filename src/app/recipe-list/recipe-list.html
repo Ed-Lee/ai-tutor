@@ -1,6 +1,6 @@
 <input type="text" [(ngModel)]="searchTerm" />
 <ul>
-    @for(recipe of filteredRecipes(); track $index) {
+    @for(recipe of filteredRecipes(); track recipe.id) {
         <li>
             <a [routerLink]="['/recipes', recipe.id]">{{ recipe.name }}</a>  
         </li>

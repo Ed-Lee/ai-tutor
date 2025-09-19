@@ -1,0 +1,12 @@
+<form [formGroup]="recipeForm" (ngSubmit)="doSubmit()">
+    <div>
+        <label for="name">Name:</label>
+        <input id="name" type="text" formControlName="name" />
+    </div>
+    <div>
+        <label for="description">Description:</label>
+        <textarea id="description" formControlName="description"></textarea>
+    </div>
+
+    <button type="submit">Add Recipe</button>
+</form>
