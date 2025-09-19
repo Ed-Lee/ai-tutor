@@ -9,9 +9,9 @@
       <p class="recipe-description">{{ recipe()?.description }}</p>
   
       <div class="servings-control">
-        <button (click)="decreaseServings()">-</button>
+        <button mat-icon-button (click)="decreaseServings()">-</button>
         <span>份量: {{ servings() }}</span>
-        <button (click)="increaseServings()">+</button>
+        <button mat-icon-button color="primary" (click)="increaseServings()">+</button>
       </div>
   
       <ul class="ingredients-list">

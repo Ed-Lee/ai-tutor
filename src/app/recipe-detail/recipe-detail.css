@@ -62,17 +62,7 @@
     margin-bottom: 1.5rem;
   }
   
-  .servings-control button {
-    /* 視覺：讓按鈕更專業 */
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    border: 1px solid #ccc;
-    background-color: #f7f7f7;
-    border-radius: 50%; /* 圓形按鈕 */
-    width: 30px;
-    height: 30px;
-  }
+  
   
   /* --- 食材列表 --- */
   .ingredients-list h3 {
