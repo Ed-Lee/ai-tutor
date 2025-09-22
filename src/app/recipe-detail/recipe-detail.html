@@ -1,24 +1,33 @@
-<div class="recipe-card">
-    <img class="recipe-image" [src]="recipe()?.imgUrl" alt="{{ recipe()?.name }}" />
-  
-    <div class="recipe-content">
-      <h2 class="recipe-name">
-        @if (recipe()?.isFavorite) { <span class="favorite-icon">❤️</span> }
+<mat-card class="user-card">
+  <img mat-card-image [src]="recipe()?.imgUrl" alt="{{ recipe()?.name }}" />
+  <mat-card-header>
+    <mat-card-title>
+      @if (recipe()?.isFavorite) { <span class="favorite-icon">❤️</span> }
         {{ recipe()?.name }}
-      </h2>
-      <p class="recipe-description">{{ recipe()?.description }}</p>
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{ recipe()?.description }}
+    </mat-card-subtitle>
+  </mat-card-header>
+    
   
+    
+  <mat-card-content>
       <div class="servings-control">
         <button mat-icon-button (click)="decreaseServings()">-</button>
         <span>份量: {{ servings() }}</span>
         <button mat-icon-button color="primary" (click)="increaseServings()">+</button>
       </div>
+      
+        <ul class="ingredients-list">
+          @for (item of ingredients(); track $index) {
+            <li>{{ item.name }} : {{ item.quantity }} {{ item.unit }}</li>
+          }
+      </ul>
+
+      </mat-card-content>
   
-      <ul class="ingredients-list">
-        @for (item of ingredients(); track $index) {
-          <li>{{ item.name }} : {{ item.quantity }} {{ item.unit }}</li>
-        }
-    </ul>
-    </div>
-  </div>
+      
+    </mat-card>
+  
   

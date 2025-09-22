@@ -3,10 +3,12 @@ import { RecipeModel } from '../models';
 import { ActivatedRoute } from '@angular/router';
 import { Recipe } from '../recipe';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-recipe-detail',
-  imports: [MatButtonModule],
+  imports: [MatButtonModule, MatCardModule, MatIconModule],
   templateUrl: './recipe-detail.html',
   styleUrl: './recipe-detail.css'
 })
